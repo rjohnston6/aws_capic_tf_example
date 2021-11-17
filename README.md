@@ -8,6 +8,8 @@ Visit the following url to view details about Cisco cAPIC on the AWS Marketplace
 
 [AWS Marketplace - Cisco Cloud Infrastructure Controller](https://aws.amazon.com/marketplace/pp/prodview-2ik24m2crp3h4?sr=0-13&ref_=beagle&applicationId=AWSMPContessa)
 
+## Note
+When issuing a terraform destroy, the cloud stack will be set for deletion and process the delete process of the resources created as part of the CloudFormation template. In some occurances the destroy will fail at approximately 15 minutes. The failure reason will be displayed and will likely result in an issue deleting the VPC that is created. To resolve manually access the AWS console and remove the **_context-[overlay-1]-addr-[<vpc_cidr>]_** VPC then re-run the terraform destroy. It should execute and complete successfully.
 
 <!-- BEGIN_TF_DOCS -->
 ## Requirements
