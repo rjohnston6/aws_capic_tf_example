@@ -1,7 +1,10 @@
+
+### AWS variables
+
 variable "aws_region" {
   description = "AWS Region for resource deployment"
   type        = string
-  default     = "us-west-2"
+  default     = "us-east-1"
 }
 
 variable "aws_credential_profile" {
@@ -9,6 +12,9 @@ variable "aws_credential_profile" {
   type        = string
   default     = "default"
 }
+
+
+### Cloud ACI variables
 
 variable "capic_template_url" {
   description = "CloudFormation template URL for CAPIC"
@@ -52,11 +58,8 @@ variable "pInfraVPCPool" {
 variable "pAvailabilityZone" {
   description = "Availability zone for Cloud APIC (Must select lexicographically lowest Availability zone)"
   type        = string
-  default     = "us-west-2a"
+  default     = "us-east-1a"
 
-  # To get a list of all availabile availability zones for a region use the aws cli
-  # ``` aws ec2 describe-availability-zones --region region-name ```
-  # eg. aws ec2 describe-availability-zones --region us-west-2
 }
 
 variable "pInstanceType" {
