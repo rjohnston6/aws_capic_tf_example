@@ -2,14 +2,15 @@
 
 This is an example terraform manifest that uses the terraform resource **aws_cloudformation_stack** to deploy the Cisco Cloud Application Policy Infrastructure Controller (cAPIC) using the provided CloudFormation template published on the AWS Marketplace.
 
-To use this CloudFormation stack you must access the AWS Marketplace and subscribe and accept the terms and conditions prior to executing the apply, failure to do so will cause the execution to run for approximately 10 minutes then fail on deployment of the cAPIC Instance and roll back the stack deployment. 
+## Pre-Requirements
 
-Visit the following url to view details about Cisco cAPIC on the AWS Marketplace and to subscribe.
+**Cloud ACI Subscription**
 
-[AWS Marketplace - Cisco Cloud Infrastructure Controller](https://aws.amazon.com/marketplace/pp/prodview-2ik24m2crp3h4?sr=0-13&ref_=beagle&applicationId=AWSMPContessa)
+To use this CloudFormation stack you must access the AWS Marketplace and subscribe and accept the terms and conditions prior to executing the apply, failure to do so will cause the execution to run for approximately 10 minutes then fail on deployment of the cAPIC Instance and roll back the stack deployment.
 
-## Note
-When issuing a terraform destroy, the cloud stack will be set for deletion and process the delete process of the resources created as part of the CloudFormation template. In some occurances the destroy will fail at approximately 15 minutes. The failure reason will be displayed and will likely result in an issue deleting the VPC that is created. To resolve manually access the AWS console and remove the **_context-[overlay-1]-addr-[<vpc_cidr>]_** VPC then re-run the terraform destroy. It should execute and complete successfully.
+Visit the following url to view details about Cisco cAPIC on the AWS Marketplace to subscribe.
+
+[AWS Marketplace - Cisco Cloud Application Policy Infrastructure Controller](https://aws.amazon.com/marketplace/pp/prodview-2ik24m2crp3h4?sr=0-13&ref_=beagle&applicationId=AWSMPContessa)
 
 <!-- BEGIN_TF_DOCS -->
 ## Requirements
@@ -24,10 +25,6 @@ When issuing a terraform destroy, the cloud stack will be set for deletion and p
 | Name | Version |
 |------|---------|
 | <a name="provider_aws"></a> [aws](#provider\_aws) | 3.65.0 |
-
-## Modules
-
-No modules.
 
 ## Resources
 
@@ -52,9 +49,16 @@ No modules.
 | <a name="input_pKeyName"></a> [pKeyName](#input\_pKeyName) | Name of an existing SSH KeyPair to enable SSH access to Cloud APIC | `string` | n/a | yes |
 | <a name="input_pPassword"></a> [pPassword](#input\_pPassword) | Admin Password for Cloud APIC | `string` | n/a | yes |
 
+For the most sensitive information, you can add those into a separate `terraform.tfvars` file.
+
 ## Outputs
 
 | Name | Description |
 |------|-------------|
 | <a name="output_stack_outputs"></a> [stack\_outputs](#output\_stack\_outputs) | Outputs from the Stack execution |
 <!-- END_TF_DOCS -->
+
+## Note
+When issuing a ````terraform destroy````, the cloud stack will be set for deletion and process the delete process of the resources created as part of the CloudFormation template. In some occurrences the destroy will fail at approximately 15 minutes. The failure reason will be displayed and will likely result in an issue deleting the VPC that is created. To resolve it manually, access the AWS console and remove the **_context-[overlay-1]-addr-[<vpc_cidr>]_** VPC then re-run the ````terraform destroy````. It should execute and complete successfully.
+
+There are some other AWS services which CloudFormation does not delete automatically, so navigate to S3, SQS, CloudTrail, and CloudWatch to finalize the clean-up.
