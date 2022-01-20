@@ -19,7 +19,7 @@ variable "aws_credential_profile" {
 variable "capic_template_url" {
   description = "CloudFormation template URL for CAPIC"
   type        = string
-  default     = "https://s3.amazonaws.com/awsmp-fulfillment-cf-templates-prod/6cad9a0e-821a-4f03-881e-fb1f66f4dc1f.d84b3cb0-1de1-4ce6-48b1-08c415e60682.template"
+  default     = "https://s3.amazonaws.com/awsmp-fulfillment-cf-templates-prod/6cad9a0e-821a-4f03-881e-fb1f66f4dc1f/701f86dae59c46b1994f687f85e0aca3.template"
 }
 
 variable "capic_stack_name" {
