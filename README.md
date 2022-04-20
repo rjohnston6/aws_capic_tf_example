@@ -41,9 +41,9 @@ As part of the deployment a EC2 Key pair is required. Create this key pair prior
 
 #### AWS CLI
 
-The Terraform AWS Provider has various configuration for authentication. Refer to the following for configuring authentation for the AWS provider. [Terraform AWS Provider Documentation](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#authentication-and-configuration)
+The Terraform AWS Provider has various configuration for authentication. Refer to the following for configuring authentation for the AWS provider. [Terraform AWS Provider Documentation](https://registry.terraform.io/providers/hashicorp/aws/latest/docs#authentication-and-configuration).
 
-This example uses named profiles configured with the AWS CLI. This allows the credentials for the AWS account to be stored away from the repo and makes it easy to pick the tenant based on the named profile. Refer to this link for details, [Named Profiles for AWS CLI](https://docs.aws.amazon.com/cli/latest/userguide/cli-configure-profiles.html)
+This example uses named profiles configured with the AWS CLI. This allows the credentials for the AWS account to be stored away from the repo and makes it easy to pick the tenant based on the named profile. Refer to this link for details, [Named Profiles for AWS CLI](https://docs.aws.amazon.com/cli/latest/userguide/cli-configure-profiles.html).
 
 ### Cloud ACI Subscription
 
