@@ -4,10 +4,10 @@ This is an example terraform manifest that uses the terraform resource **aws_clo
 
 ## Table of Content
 - [Pre-Requirements](#pre-requirements)
-- [AWS Requirements](#aws-requirements)
-   - [AWS Accounts](#aws-accounts)
-   - [AWS EC2 Key Pair](#aws-ec2-key-pair)
-   - [AWS CLI](#aws-cli)
+   - [AWS Requirements](#aws-requirements)
+      - [AWS Accounts](#aws-accounts)
+      - [AWS EC2 Key Pair](#aws-ec2-key-pair)
+      - [AWS CLI](#aws-cli)
    - [Cloud ACI Subscription](#cloud-aci-subscription)
 - [Installation](#installation)
 - [Usage](#usage)
