@@ -2,6 +2,26 @@
 
 This is an example terraform manifest that uses the terraform resource **aws_cloudformation_stack** to deploy the Cisco Cloud Application Policy Infrastructure Controller (cAPIC) using the provided CloudFormation template published on the AWS Marketplace.
 
+## Table of Content
+- [Pre-Requirements](#pre-requirements)
+- [AWS Requirements](#aws-requirements)
+   - [AWS Accounts](#aws-accounts)
+   - [AWS EC2 Key Pair](#aws-ec2-key-pair)
+   - [AWS CLI](#aws-cli)
+   - [Cloud ACI Subscription](#cloud-aci-subscription)
+- [Installation](#installation)
+- [Usage](#usage)
+   - [TFVARS Definition](#tfvars-definition)
+   - [Execution](#execution)
+   - [Terraform Destroy](#terraform-destroy)
+- [Contributors](#contributors)
+- [Terraform Details](#terraform-details)
+   - [Requirements](#requirements)
+   - [Providers](#providers)
+   - [Modules](#modules)
+   - [Inputs](#inputs)
+   - [Outputs](#outputs)
+
 ## Pre-Requirements
 
 ### AWS Requirements
@@ -58,7 +78,7 @@ The following steps outline how to update the file for use during execution.
    * Set the `pPassword` to the desired password for authentication to cAPIC web interface.
    * Set the `pKeyName` to the name of the previously defined EC2 key pair as outlined in the pre-requirments. Remember the Key Pair must be present in the intended region where cAPIC will be deployed.
    * (**Optional**) Set the `pExtNw` to the subnet permitted to access the cAPIC. For demonstarations a value of `"0.0.0.0/0"` will allow access from any IP address globably. This may be sufficent for demonstations but ensure to follow your organizations CyberSecurity requirements that may dictate differently workloads.
-3. Additional variables can be added to the tfvars to override the defaults defined in the variable defaults. See the section "Terrafrom Details - Inputs" for all variables and thier defaults.
+3. Additional variables can be added to the tfvars to override the defaults defined in the variable defaults. See the section ["Terrafrom Details - Inputs"](#inputs) for all variables and thier defaults.
 4. Save the updated `terraform.tfvars` file.
 
 #### Execution
