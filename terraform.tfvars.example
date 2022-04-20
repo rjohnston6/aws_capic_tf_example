@@ -1,0 +1,9 @@
+# This is an EXAMPLE TFVARS file refer to README for variables and defaults
+
+# AWS credential profile configured in aws_cli for the infrastructure tenant
+aws_credential_profile = "capic_profile"
+aws_region             = "us-west-2"
+pAvailabilityZone      = "us-west-2a"
+pPassword              = "SuperS3cureP@ssword_CHANGE_ME!!!"
+pKeyName               = "Name_of_preconfigured_EC2_Private_Key"
+pExtNw                 = "0.0.0.0/0"

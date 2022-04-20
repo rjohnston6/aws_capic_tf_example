@@ -27,10 +27,10 @@ resource "aws_cloudformation_stack" "capic_stack" {
     pExtNw            = var.pExtNw
     pAssignOOBIntfEIP = var.pAssignOOBIntfEIP
   }
-  template_url     = var.capic_template_url
-  disable_rollback = false
-  on_failure       = "DO_NOTHING"
-  iam_role_arn     = ""
+  template_url = var.capic_template_url
+  # disable_rollback = false
+  # on_failure       = "DO_NOTHING"
+  # iam_role_arn     = ""
 
   capabilities = ["CAPABILITY_NAMED_IAM"] # CAPABILITY_NAMED_IAM required for cAPIC Stack
 }
