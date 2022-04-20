@@ -83,7 +83,7 @@ The following steps outline how to update the file for use during execution.
 
 #### Execution
 
-![workflow_image](img/workflow.jpg) "cAPIC Deployment Workflow"
+![workflow_image](img/workflow.jpg)
 
 Use the following steps to initalize, plan and deploy using terraform cli. Once deployed the assigned public IP address for the cAPIC will be provided.
 
@@ -114,7 +114,7 @@ There are known occurances when issuing `terraform destroy`, the destroy will fa
 
 ## Contributors
 
-Special thank you goes to @github/marinalf for testing and providing feedback along the way! :trophy:
+Special thank you goes to [@github/marinalf](https://github.com/marinalf) for testing and providing feedback along the way! :trophy:
 
 # Terraform Details
 <!-- BEGIN_TF_DOCS -->
