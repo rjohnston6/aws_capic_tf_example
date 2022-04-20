@@ -58,38 +58,43 @@ The following steps outline how to update the file for use during execution.
    * Set the `pPassword` to the desired password for authentication to cAPIC web interface.
    * Set the `pKeyName` to the name of the previously defined EC2 key pair as outlined in the pre-requirments. Remember the Key Pair must be present in the intended region where cAPIC will be deployed.
    * (**Optional**) Set the `pExtNw` to the subnet permitted to access the cAPIC. For demonstarations a value of `"0.0.0.0/0"` will allow access from any IP address globably. This may be sufficent for demonstations but ensure to follow your organizations CyberSecurity requirements that may dictate differently workloads.
-3. Save the updated `terraform.tfvars` file.
+3. Additional variables can be added to the tfvars to override the defaults defined in the variable defaults. See the section "Terrafrom Details - Inputs" for all variables and thier defaults.
+4. Save the updated `terraform.tfvars` file.
 
 #### Execution
 
-![alt text][workflow_image]
-[[workflow_image]: https://github.com/rjohnston6/aws_capic_tf_example/img/workflow.jpg "cAPIC Deployment Workflow"
+![workflow_image](img/workflow.jpg) "cAPIC Deployment Workflow"
 
 Use the following steps to initalize, plan and deploy using terraform cli. Once deployed the assigned public IP address for the cAPIC will be provided.
 
 1. From a terminal change directories to the root of the cloned repo.
-2. Initialize the the working directory for terraform by entering `terraform init`
+2. Initialize the working directory for terraform by entering `terraform init`
 3. Validate the terraform files for any syntax errors by entering `terraform validate`
 4. Run a plan to see what will be created by entering `terraform plan`
 5. Apply the terraform configuration by entering `terraform apply` optionally to skip answering yes 'terraform apply -auto-approve` can be used.
 6. The apply will take a couple minutes to execute, once the complete the IP address for the cAPIC will be displayed. **IMPORTANT** At this point the apply is complete and the instances and resources are deployed and starting up. Wait approximately 10 minutes to allow cAPIC to startup.
 
 At this point cAPIC is deployed and can the GUI can be accessed at:
-> https://<outputed_capic_IP_address>
+> https://<outputed_CAPICElasticIP>
+
+![output_example](img/capic_output.jpg)
 
 #### Terraform Destroy
 In the event you would like to undeploy cAPIC, using `terraform destroy` from the directories root will cause terraform to delete the cloud formation stack used during deployment. This will remove a **majority** of the cloud deployed resources in the AWS tenant. It does **NOT** remove all resources. As part of the cAPICs start up there are additional resources configured and must be removed either using the AWS Console, aws cli or other means. These resources are as follows:
-- S3 Bucket
+- S3 Bucket (capic-xxxx)
 - SQS
 - CloudTrail
 - CloudWatch
+- EventBridge
 
 **_NOTE_**:
-There are known occurances when issuing `terraform destroy`, the destroy will fail at approximately 15 miuntes. The failure reason will be displayed and in most cases will be related to being unable do delete the VPC that was initially created. To resolve this manually, access the AWS console and remove the VPC `context-[overlay-1]-addr-[<vpc_cidr>]` then re-run the terraform destroy.
+There are known occurances when issuing `terraform destroy`, the destroy will fail at approximately 15 minutes. The failure reason will be displayed and in most cases will be related to being unable to delete the VPC that was initially created. To resolve this manually, access the AWS console and remove the VPC `context-[overlay-1]-addr-[<vpc_cidr>]` then re-run the terraform destroy.
+
+![destroy_error](img/destroy_error_msg.jpg)
 
 ## Contributors
 
-Special thank you goes to @marinalf for testing and providing feedback along the way! :trophy:
+Special thank you goes to @github/marinalf for testing and providing feedback along the way! :trophy:
 
 # Terraform Details
 <!-- BEGIN_TF_DOCS -->
