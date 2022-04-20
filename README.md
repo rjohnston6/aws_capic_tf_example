@@ -114,7 +114,7 @@ There are known occurances when issuing `terraform destroy`, the destroy will fa
 
 ## Contributors
 
-Special thank you goes to [@github/marinalf](https://github.com/marinalf) for testing and providing feedback along the way! :trophy:
+Special thank you goes to [Marina Ferreira](https://github.com/marinalf) for testing and providing feedback along the way! :trophy:
 
 # Terraform Details
 <!-- BEGIN_TF_DOCS -->
