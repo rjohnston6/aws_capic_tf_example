@@ -1,6 +1,6 @@
 # Example Terraform Plan to deploy Cisco Cloud Application Policy Infrastructure Controller on AWS
 
-![devnet_status](https://static.production.devnetcloud.com/codeexchange/assets/images/devnet-published.svg)
+[![published](https://static.production.devnetcloud.com/codeexchange/assets/images/devnet-published.svg)](https://developer.cisco.com/codeexchange/github/repo/marinalf/aws_capic_tf_example)
 
 This is an example terraform manifest that uses the terraform resource **aws_cloudformation_stack** to deploy the Cisco Cloud Application Policy Infrastructure Controller (cAPIC) using the provided CloudFormation template published on the AWS Marketplace.
 
